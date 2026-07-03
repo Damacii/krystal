@@ -34,7 +34,6 @@ window.KRYSTAL_BROWS_DATA = {
   navigation: [
     { label: "Home", href: "index.html" },
     { label: "Services", href: "services.html" },
-    { label: "Gallery", href: "gallery.html" },
     { label: "Booking", href: "booking.html" },
     { label: "FAQ", href: "faq.html" },
     { label: "Policies", href: "policies.html" },
@@ -150,43 +149,6 @@ window.KRYSTAL_BROWS_DATA = {
       bestFor: "Men or clients wanting a clean, subtle brow shape without an overly styled finish.",
       maintenance: "Recommended every 3–4 weeks."
     }
-  ],
-  galleryCategories: [
-    "All",
-    "Brow Wax & Shape",
-    "Brow Lamination",
-    "Hybrid Tint",
-    "Brow Stain",
-    "Korean Lash Lift",
-    "Before & After"
-  ],
-  galleryImages: [
-    { src: "assets/images/placeholders/gallery1.jpg", alt: "Gallery photo 1" },
-    { src: "assets/images/placeholders/gallery2.jpeg", alt: "Gallery photo 2" },
-    { src: "assets/images/placeholders/gallery3.jpeg", alt: "Gallery photo 3" },
-    { src: "assets/images/placeholders/gallery4.jpeg", alt: "Gallery photo 4" },
-    { src: "assets/images/placeholders/gallery5.jpeg", alt: "Gallery photo 5" },
-    { src: "assets/images/placeholders/gallery6.jpeg", alt: "Gallery photo 6" },
-    { src: "assets/images/placeholders/gallery7.jpeg", alt: "Gallery photo 7" },
-    { src: "assets/images/placeholders/gallery10.jpg", alt: "Gallery photo 8" },
-    { src: "assets/images/placeholders/gallery12.jpg", alt: "Gallery photo 10" },
-    { src: "assets/images/placeholders/gallery13.jpeg", alt: "Gallery photo 11" },
-    { src: "assets/images/placeholders/gallery14.jpeg", alt: "Gallery photo 12" },
-    { src: "assets/images/placeholders/gallery15.jpeg", alt: "Gallery photo 13" },
-    { src: "assets/images/placeholders/gallery16.jpeg", alt: "Gallery photo 14" },
-    { src: "assets/images/placeholders/gallery17.jpeg", alt: "Gallery photo 15" },
-    { src: "assets/images/placeholders/gallery18.jpeg", alt: "Gallery photo 16" },
-    { src: "assets/images/placeholders/gallery19.jpeg", alt: "Gallery photo 17" },
-    { src: "assets/images/placeholders/gallery20.jpeg", alt: "Gallery photo 18" },
-    { src: "assets/images/placeholders/gallery21.jpeg", alt: "Gallery photo 19" },
-    { src: "assets/images/placeholders/gallery23.jpeg", alt: "Gallery photo 21" },
-    { src: "assets/images/placeholders/gallery24.jpeg", alt: "Gallery photo 22" },
-    { src: "assets/images/placeholders/gallery25.jpeg", alt: "Gallery photo 23" },
-    { src: "assets/images/placeholders/gallery26.jpeg", alt: "Gallery photo 24" },
-    { src: "assets/images/placeholders/gallery27.jpeg", alt: "Gallery photo 25" },
-    { src: "assets/images/placeholders/gallery28.jpeg", alt: "Gallery photo 26" },
-    { src: "assets/images/placeholders/gallery29.jpeg", alt: "Gallery photo 27" },
-    { src: "assets/images/placeholders/gallery31.jpeg", alt: "Gallery photo 29" }
   ],
   testimonials: [
     {

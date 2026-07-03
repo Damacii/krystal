@@ -192,22 +192,6 @@
     if (list) list.innerHTML = data.services.map(serviceCard).join("");
   }
 
-  function galleryCard(image) {
-    return `
-      <article class="gallery-card" data-gallery-item>
-        <img class="gallery-card__image" src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt)}">
-      </article>
-    `;
-  }
-
-  function renderGallery() {
-    const preview = document.querySelector("[data-gallery-preview]");
-    if (preview) preview.innerHTML = data.galleryImages.slice(0, 3).map(galleryCard).join("");
-
-    const grid = document.querySelector("[data-gallery-grid]");
-    if (grid) grid.innerHTML = data.galleryImages.map(galleryCard).join("");
-  }
-
   function renderTestimonials() {
     const containers = document.querySelectorAll("[data-testimonials]");
     containers.forEach((container) => {
@@ -410,7 +394,6 @@
   renderFooter();
   hydrateStaticText();
   renderServices();
-  renderGallery();
   renderTestimonials();
   renderContactInfo();
   renderFaqs();

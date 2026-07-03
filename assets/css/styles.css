@@ -851,7 +851,6 @@ p {
 }
 
 .service-card h3,
-.gallery-card h3,
 .info-card h2,
 .policy-section h2 {
   color: rgba(28, 28, 27, 0.72);
@@ -863,8 +862,7 @@ p {
 .service-card:hover,
 .testimonial-card:hover,
 .info-card:hover,
-.policy-section:hover,
-.gallery-card:hover {
+.policy-section:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow);
 }
@@ -946,30 +944,6 @@ dd {
   box-shadow: none;
 }
 
-.gallery-grid {
-  display: block;
-  column-count: 4;
-  column-gap: 0.7rem;
-}
-
-.gallery-card {
-  display: inline-block;
-  width: 100%;
-  margin: 0 0 0.7rem;
-  break-inside: avoid;
-  overflow: hidden;
-  border-radius: 25px;
-  background: transparent;
-  box-shadow: 0 12px 28px rgba(28, 28, 27, 0.14);
-}
-
-.gallery-card__image {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: inherit;
-  box-shadow: none;
-}
 
 .testimonial-card {
   margin: 0;
@@ -1372,10 +1346,6 @@ dd {
     grid-template-columns: 1fr;
   }
 
-  .gallery-grid {
-    column-count: 2;
-  }
-
   .service-card {
     display: flex;
   }
@@ -1489,10 +1459,6 @@ dd {
 
   .booking-hero__content {
     padding: 1.15rem;
-  }
-
-  .gallery-grid {
-    column-count: 1;
   }
 
   .contact-heading {
