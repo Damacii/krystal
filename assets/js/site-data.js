@@ -566,7 +566,7 @@ window.KRYSTAL_BROWS_DATA = {
     },
     {
       title: "Payments",
-      copy: "Payments are accepted through Cash or Zelle only."
+      copy: "Payments are accepted through card, Apple Pay, Zelle, or cash."
     },
     {
       title: "Late arrivals",
