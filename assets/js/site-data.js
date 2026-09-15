@@ -29,7 +29,7 @@ window.KRYSTAL_BROWS_DATA = {
     tiktok: "https://www.tiktok.com/@browzbykrystal",
     address: "6361 Pats Ranch Rd Suite 5, Jurupa Valley, CA 91752",
     hours:
-      "Monday: 9:30 AM – 5:30 PM\nTuesday: 9:30 AM – 7:00 PM\nWednesday: 9:30 AM – 5:30 PM\nThursday: 9:30 AM – 7:00 PM\nFriday: 9:30 AM – 5:30 PM\nSaturday: 9:30 AM – 2:00 PM\nSunday: Closed"
+      "Monday: Closed\nTuesday: 9:30 AM – 7:00 PM\nWednesday: 9:30 AM – 5:30 PM\nThursday: 9:30 AM – 7:00 PM\nFriday: 9:30 AM – 5:30 PM\nSaturday: 9:30 AM – 2:00 PM\nSunday: Closed"
   },
   navigation: [
     { label: "Home", href: "index.html" },
