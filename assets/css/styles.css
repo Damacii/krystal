@@ -560,6 +560,10 @@ p {
   line-height: 0.9;
 }
 
+.client-notes-heading {
+  max-width: none;
+}
+
 .section-header .button-row {
   margin-top: 1rem;
 }
@@ -622,7 +626,7 @@ p {
 .about-copy__body {
   display: grid;
   gap: 0.95rem;
-  max-width: 42rem;
+  max-width: none;
 }
 
 .about-copy__body p {
@@ -662,17 +666,16 @@ p {
 }
 
 .about-media {
-  position: sticky;
-  top: 6.5rem;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  padding-top: 1.25rem;
-  align-items: start;
+  align-self: stretch;
+  min-height: 0;
 }
 
 .about-media__primary {
+  position: relative;
   width: 100%;
-  min-height: 520px;
+  height: 100%;
   margin-left: auto;
 }
 
@@ -744,6 +747,16 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.placeholder-media.about-media__primary {
+  min-height: 256px;
+}
+
+.about-media__primary img {
+  position: absolute;
+  inset: 0;
+  object-position: center 62%;
 }
 
 .card-grid {
@@ -840,6 +853,14 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.service-card__media img[src$="Brow Wax & Shape.JPEG"] {
+  object-position: center 35%;
+}
+
+.service-card__media img[src$="Brow Lamination.JPEG"] {
+  object-position: center 30%;
 }
 
 .service-card__details {
@@ -1319,6 +1340,10 @@ dd {
     grid-template-columns: 1fr;
   }
 
+  .about-media__primary {
+    height: 420px;
+  }
+
   .page-hero--booking,
   .card-grid--booking {
     grid-template-columns: 1fr;
@@ -1398,6 +1423,12 @@ dd {
     padding-top: 4rem;
   }
 
+  .hero__copy .eyebrow[data-brand-eyebrow] {
+    width: 100%;
+    text-align: center;
+    margin-inline: auto;
+  }
+
   .portrait-grid .placeholder-media:first-child,
   .portrait-grid .placeholder-media:last-child {
     min-height: 340px;
@@ -1413,6 +1444,11 @@ dd {
     line-height: 1.04;
   }
 
+  .client-notes-heading {
+    max-width: 18ch;
+    margin-inline: auto;
+  }
+
   .about-media {
     position: relative;
     top: auto;
@@ -1425,6 +1461,10 @@ dd {
     min-height: 340px;
     margin-top: 0;
     margin-right: 0;
+  }
+
+  .about-media__primary {
+    height: 340px;
   }
 
   .portrait-grid,

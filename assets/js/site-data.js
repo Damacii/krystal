@@ -42,7 +42,7 @@ window.KRYSTAL_BROWS_DATA = {
   services: [
     {
       name: "Brow Lamination",
-      image: "assets/images/services/brow-lam.jpg",
+      image: "assets/images/services/Brow Lamination.JPEG",
       description:
         "A brow lamination service designed to lift, smooth, and shape the natural brow hairs for a fuller, polished look. Includes brow mapping and brow wax.",
       price: "$100",
@@ -53,7 +53,7 @@ window.KRYSTAL_BROWS_DATA = {
     },
     {
       name: "Brow Lamination + Hybrid Tint",
-      image: "assets/images/services/brow-lam-tint.jpg",
+      image: "assets/images/services/Brow Lamination + Hybrid Tint.JPEG",
       description:
         "A brow lamination service paired with hybrid tint for a fuller, more defined brow look. Includes brow mapping and brow wax.",
       price: "$120",
@@ -64,7 +64,7 @@ window.KRYSTAL_BROWS_DATA = {
     },
     {
       name: "Brow Wax & Shape",
-      image: "assets/images/services/brow-wax.jpg",
+      image: "assets/images/services/Brow Wax & Shape.JPEG",
       description:
         "A brow shaping service using wax to clean, define, and balance the brows.",
       price: "$45",
