@@ -50,6 +50,52 @@
       .replaceAll("'", "&#039;");
   }
 
+  function phoneHref(value) {
+    const digits = String(value).replace(/[^0-9+]/g, "");
+    return `tel:${digits.length === 10 ? "+1" : ""}${digits}`;
+  }
+
+  function emailCopyButton(email, label = email) {
+    return `<button class="contact-link email-copy" type="button" data-copy-email="${escapeHtml(email)}" aria-label="Copy email address ${escapeHtml(email)}">${escapeHtml(label)}</button>`;
+  }
+
+  function bindEmailCopy() {
+    const status = document.createElement("div");
+    status.className = "copy-status";
+    status.setAttribute("role", "status");
+    document.body.appendChild(status);
+    let timer;
+
+    document.querySelectorAll("[data-copy-email]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const email = button.dataset.copyEmail;
+        let copied = false;
+        try {
+          await navigator.clipboard.writeText(email);
+          copied = true;
+        } catch {
+          const field = document.createElement("textarea");
+          field.value = email;
+          field.setAttribute("readonly", "");
+          field.style.cssText = "position:fixed;left:-9999px;top:0";
+          document.body.appendChild(field);
+          field.select();
+          try {
+            copied = document.execCommand("copy");
+          } catch {
+            copied = false;
+          } finally {
+            field.remove();
+            button.focus({ preventScroll: true });
+          }
+        }
+        window.clearTimeout(timer);
+        status.textContent = copied ? "Email copied" : `Unable to copy. Email: ${email}`;
+        timer = window.setTimeout(() => { status.textContent = ""; }, copied ? 2500 : 6000);
+      });
+    });
+  }
+
   function setText(selector, value) {
     document.querySelectorAll(selector).forEach((element) => {
       element.textContent = value;
@@ -90,7 +136,11 @@
       <a class="site-logo" href="index.html" aria-label="${escapeHtml(data.brand.name)} home">${escapeHtml(data.brand.name)}</a>
       <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">${nav}</nav>
       <a class="button button--primary" data-booking-link href="${escapeHtml(bookingUrl)}">Book Now</a>
-      <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">Menu</button>
+      <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <path d="M3 6h18M3 12h18M3 18h18"></path>
+        </svg>
+      </button>
     `;
 
     const toggle = header.querySelector(".menu-toggle");
@@ -102,7 +152,7 @@
       document.body.classList.toggle("nav-open", isOpen);
       navElement.setAttribute("aria-hidden", String(!isOpen));
       toggle.setAttribute("aria-expanded", String(isOpen));
-      toggle.textContent = isOpen ? "Close" : "Menu";
+      toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
     };
 
     toggle.addEventListener("click", () => {
@@ -184,8 +234,8 @@
       <address class="site-footer__contact">
         <p class="site-footer__label">Visit</p>
         ${renderMapLink(data.business.address)}
-        <span>${escapeHtml(data.business.phone)}</span>
-        <span>${escapeHtml(footerEmail)}</span>
+        <a class="contact-link" href="${escapeHtml(phoneHref(data.business.phone))}" aria-label="Call ${escapeHtml(data.business.phone)}">${escapeHtml(data.business.phone)}</a>
+        ${footerEmail === "To be added" ? `<span>${footerEmail}</span>` : emailCopyButton(footerEmail)}
       </address>
       <div class="site-footer__meta">
         <span>Jurupa Valley, California</span>
@@ -281,12 +331,7 @@
       if (!value || String(value).startsWith("TODO")) return null;
 
       if (label === "Phone") {
-        const digits = String(value).replace(/[^0-9+]/g, "");
-        return `tel:${escapeHtml(digits)}`;
-      }
-
-      if (label === "Email") {
-        return `mailto:${escapeHtml(value)}`;
+        return escapeHtml(phoneHref(value));
       }
 
       if ((label === "Instagram" || label === "TikTok") && value && /^https?:\/\//i.test(value)) {
@@ -302,6 +347,9 @@
 
     function renderContactItem(label, value) {
       const displayValue = value && !String(value).startsWith("TODO") ? value : "To be added";
+      if (label === "Email" && displayValue !== "To be added") {
+        return `<div class="contact-item"><dt>${emailCopyButton(value, label)}</dt></div>`;
+      }
       const link = renderContactLink(label, value);
       const externalAttributes = label === "Instagram" || label === "TikTok" || label === "Address" ? ' target="_blank" rel="noreferrer"' : "";
 
@@ -435,6 +483,7 @@
   renderServices();
   renderTestimonials();
   renderContactInfo();
+  bindEmailCopy();
   renderFaqs();
   renderBookingSections();
   renderPolicies();

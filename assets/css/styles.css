@@ -166,6 +166,8 @@ p {
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
+  padding: 0;
+  cursor: pointer;
 }
 
 .button {
@@ -466,18 +468,6 @@ p {
   position: relative;
 }
 
-.section--statement h2::after {
-  content: "";
-  position: absolute;
-  right: -1.2rem;
-  bottom: -0.8rem;
-  width: 84px;
-  height: 84px;
-  border: 2px solid var(--color-accent);
-  border-radius: 50%;
-  opacity: 0.72;
-  pointer-events: none;
-}
 
 .section--narrow {
   max-width: none;
@@ -1050,7 +1040,8 @@ dd {
   text-transform: uppercase;
 }
 
-.contact-item dt a {
+.contact-item dt a,
+.contact-item dt .email-copy {
   color: inherit;
   font-weight: 900;
 }
@@ -1475,6 +1466,11 @@ dd {
     grid-template-columns: 1fr;
   }
 
+  .contact-info {
+    justify-items: center;
+    text-align: center;
+  }
+
   .split--contact-page > .section-header {
     padding-left: 0;
   }
@@ -1482,7 +1478,11 @@ dd {
   .contact-item--hours {
     grid-column: auto;
     grid-row: auto;
+    justify-self: center;
+    justify-items: center;
+    width: 100%;
     margin-left: 0;
+    text-align: center;
   }
 
   .page-hero--booking {
@@ -1518,11 +1518,6 @@ dd {
     animation-duration: 24s;
   }
 
-  .section--statement h2::after {
-    width: 56px;
-    height: 56px;
-    right: 0;
-  }
 
   .site-footer {
     grid-template-columns: 1fr;
@@ -1544,4 +1539,35 @@ dd {
   .about-copy__break {
     display: block;
   }
+}
+
+.email-copy {
+  width: fit-content;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-transform: inherit;
+  overflow-wrap: anywhere;
+}
+
+.copy-status:not(:empty) {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  z-index: 100;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100% - 2rem);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  background: var(--color-onyx);
+  color: var(--color-white);
+  box-shadow: var(--shadow);
+  font-size: 0.8rem;
+  text-align: center;
+  overflow-wrap: anywhere;
 }

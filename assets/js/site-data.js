@@ -18,7 +18,7 @@ window.KRYSTAL_BROWS_DATA = {
     tagline: "Customized brow services and Korean lash lifts with healthy, lasting results."
   },
   heroVideo: {
-    src: "assets/videos/hero-test.mp4",
+    src: "assets/videos/krystal%20new%20video.MP4",
     poster: "assets/images/placeholders/hero-video-poster.jpg",
     label: "Browz By Krystal studio and service preview video."
   },
