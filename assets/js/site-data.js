@@ -27,7 +27,7 @@ window.KRYSTAL_BROWS_DATA = {
     email: "Browzbykrystal22@gmail.com",
     instagram: "https://www.instagram.com/browzbykrystal",
     tiktok: "https://www.tiktok.com/@browzbykrystal",
-    address: "6361 Pats Ranch Rd Suite 5, Jurupa Valley, CA 91752",
+    address: "Sola Salon, 6361 Pats Ranch Rd. Suite 5, Jurupa Valley, CA 91752",
     hours:
       "Monday: Closed\nTuesday: 9:30 AM – 7:00 PM\nWednesday: 9:30 AM – 5:30 PM\nThursday: 9:30 AM – 7:00 PM\nFriday: 9:30 AM – 5:30 PM\nSaturday: 9:30 AM – 2:00 PM\nSunday: Closed"
   },
@@ -45,7 +45,7 @@ window.KRYSTAL_BROWS_DATA = {
       image: "assets/images/services/Brow Lamination.JPEG",
       description:
         "A brow lamination service designed to lift, smooth, and shape the natural brow hairs for a fuller, polished look. Includes brow mapping and brow wax.",
-      price: "$100",
+      price: "$120",
       length: "60 minutes",
       deposit: "$20 required",
       bestFor: "Clients wanting fuller, lifted, more styled brows.",
@@ -56,7 +56,7 @@ window.KRYSTAL_BROWS_DATA = {
       image: "assets/images/services/Brow Lamination + Hybrid Tint.JPEG",
       description:
         "A brow lamination service paired with hybrid tint for a fuller, more defined brow look. Includes brow mapping and brow wax.",
-      price: "$120",
+      price: "$135",
       length: "75 minutes",
       deposit: "$20 required",
       bestFor: "Clients wanting lifted brows with added color, shape, and definition.",
@@ -109,14 +109,14 @@ window.KRYSTAL_BROWS_DATA = {
     },
     {
       name: "Korean Lash Lift + Tint",
-      image: "assets/images/services/korean-lash-lift-tint.svg",
+      image: "assets/images/services/licireso.jpeg",
       description:
         "A lash lift paired with tint to enhance the appearance of natural lashes with a lifted and darker finish.",
-      price: "$90",
-      length: "65 minutes",
+      price: "$120",
+      length: "60–75 minutes",
       deposit: "$20 required",
-      bestFor: "Clients wanting lifted lashes with added definition.",
-      maintenance: "Recommended every 8–10 weeks.",
+      bestFor: "Perfect for anyone wanting naturally lifted, more defined lashes with a low-maintenance, effortless finish. Ideal for straight, downward-growing, or hard-to-curl lashes.",
+      maintenance: "Recommended every 6–8 weeks.",
       preparation: "Remove contact lenses before arrival."
     },
     {

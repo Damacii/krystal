@@ -171,76 +171,10 @@
   function renderFooter() {
     const footer = document.querySelector("[data-site-footer]");
     if (!footer) return;
-    const footerEmail = data.business.email && !String(data.business.email).startsWith("TODO") ? data.business.email : "To be added";
-    const currentYear = new Date().getFullYear();
-    const socialLinks = [
-      {
-        label: "Instagram",
-        href: data.business.instagram,
-        icon: `
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
-            <circle cx="12" cy="12" r="4.5"></circle>
-            <circle cx="17.2" cy="6.8" r="1"></circle>
-          </svg>
-        `
-      },
-      {
-        label: "TikTok",
-        href: data.business.tiktok,
-        icon: `
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M14 3.5v6.7a5.8 5.8 0 1 1-4.2-1.7"></path>
-            <path d="M14 3.5c.8 2.7 2.7 4.6 5.4 5.2"></path>
-            <path d="M9.8 15.1a2.1 2.1 0 1 0 2.1-2.1"></path>
-          </svg>
-        `
-      }
-    ];
-
-    const links = data.navigation
-      .filter((item) => item.href !== "index.html")
-      .map((item) => `<a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a>`)
-      .join("");
-
-    const socials = socialLinks
-      .filter((item) => item.href && !String(item.href).startsWith("TODO"))
-      .map(
-        (item) => `
-          <a class="site-footer__social-link" href="${escapeHtml(item.href)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(item.label)}">
-            ${item.icon}
-            <span>${escapeHtml(item.label)}</span>
-          </a>
-        `
-      )
-      .join("");
 
     footer.innerHTML = `
-      <div class="site-footer__brand">
-        <p class="site-logo">${escapeHtml(data.brand.name)}</p>
-        <p class="site-footer__tagline">${escapeHtml(data.brand.tagline)}</p>
-        <div class="button-row site-footer__actions">
-          <a class="button button--primary" data-booking-link href="${escapeHtml(bookingUrl)}">Book Now</a>
-          <a class="button button--secondary" href="contact.html">Contact</a>
-        </div>
-        <div class="site-footer__socials" aria-label="Social links">
-          ${socials}
-        </div>
-      </div>
-      <nav class="site-footer__nav" aria-label="Footer navigation">
-        <p class="site-footer__label">Explore</p>
-        <div class="site-footer__links">${links}</div>
-      </nav>
-      <address class="site-footer__contact">
-        <p class="site-footer__label">Visit</p>
-        ${renderMapLink(data.business.address)}
-        <a class="contact-link" href="${escapeHtml(phoneHref(data.business.phone))}" aria-label="Call ${escapeHtml(data.business.phone)}">${escapeHtml(data.business.phone)}</a>
-        ${footerEmail === "To be added" ? `<span>${footerEmail}</span>` : emailCopyButton(footerEmail)}
-      </address>
-      <div class="site-footer__meta">
-        <span>Jurupa Valley, California</span>
-        <span>© ${currentYear} ${escapeHtml(data.brand.name)}</span>
-      </div>
+      <span>© ${new Date().getFullYear()} ${escapeHtml(data.brand.name)}</span>
+      <address>${renderMapLink(data.business.address)}</address>
     `;
   }
 
@@ -275,7 +209,13 @@
 
   function renderServices() {
     const preview = document.querySelector("[data-services-preview]");
-    if (preview) preview.innerHTML = data.services.slice(0, 3).map(serviceCard).join("");
+    if (preview) {
+      const featuredServices = [
+        ...data.services.slice(0, 3),
+        data.services.find((service) => service.name === "Korean Lash Lift + Tint")
+      ].filter(Boolean);
+      preview.innerHTML = featuredServices.map(serviceCard).join("");
+    }
 
     const list = document.querySelector("[data-services-list]");
     if (list) list.innerHTML = data.services.map(serviceCard).join("");
@@ -461,6 +401,9 @@
       element.innerHTML = `
         ${renderMapLink(data.business.address)}
       `;
+    });
+    document.querySelectorAll("[data-studio-address]").forEach((link) => {
+      link.setAttribute("href", `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(data.business.address)}`);
     });
 
     document.querySelectorAll("[data-booking-link]").forEach((link) => {
