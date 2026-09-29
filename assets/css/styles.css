@@ -1369,7 +1369,7 @@ dd {
     justify-self: center;
     justify-items: center;
     width: 100%;
-    margin-left: 0;
+    margin: 1.5rem 0 0;
     text-align: center;
   }
 
